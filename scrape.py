@@ -97,11 +97,11 @@ def extract_cashflow(fin: "yf.Ticker") -> pd.DataFrame:
     return cashflow_values
 
 if __name__ == '__main__':
-    aapl = yf.Ticker('AAPL')
-    fin = extract_financial(aapl)
-    balance = extract_balance(aapl)
-    cashflow = extract_cashflow(aapl)
-    
+    stock_ticker = input("Enter stock ticker (e.g., AAPL): ").strip().upper()
+    fin = extract_financial(stock_ticker)
+    balance = extract_balance(stock_ticker)
+    cashflow = extract_cashflow(stock_ticker)
+
     print('Converting data to CSV files...\n')
     fin.to_csv('dataset/financials.csv', index=False)
     balance.to_csv('dataset/balance_sheet.csv', index=False)
