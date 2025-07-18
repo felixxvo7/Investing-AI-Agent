@@ -23,7 +23,7 @@ balance_metrics = [
 ]
 
 cashflow_metrics = [
-    "Cash Flow From Continuing Financing Activities",
+    "Cash Flow From Continuing Operating Activities",
     "Capital Expenditure"
 ]
 
@@ -97,7 +97,8 @@ def extract_cashflow(fin: "yf.Ticker") -> pd.DataFrame:
     return cashflow_values
 
 if __name__ == '__main__':
-    stock_ticker = input("Enter stock ticker (e.g., AAPL): ").strip().upper()
+    stock = input("Enter stock ticker (e.g., AAPL): ").strip().upper()
+    stock_ticker = yf.Ticker(stock)
     fin = extract_financial(stock_ticker)
     balance = extract_balance(stock_ticker)
     cashflow = extract_cashflow(stock_ticker)

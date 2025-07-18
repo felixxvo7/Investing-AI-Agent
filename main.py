@@ -1,4 +1,5 @@
 import yfinance as yf
+from pprint import pprint
 
 data = yf.Ticker("AAPL")
-print(data.info)
+pprint(data.info)
